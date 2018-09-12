@@ -1,5 +1,7 @@
-function logScores(...scores) {
-  console.log(scores);
+function logScore(score1, score2, score3) {
+  console.log(score1 + ", " + score2 + ", " + score3);
 }
 
-logScores(50, 85, 75); // [50, 85, 75]
+const scores = [75, 65, 80];
+
+logScore(...scores); // 75, 65, 80
