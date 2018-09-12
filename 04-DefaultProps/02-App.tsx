@@ -1,18 +1,11 @@
 // TypeScript 2.9
 
-// C:/code/_temp/ts-react-defaultprops/myapp/src/App.tsx
-// (27,6): Type '{ text: string; }' is not assignable to type 'IntrinsicAttributes & IntrinsicClassAttributes<SplitText> & Readonly<{ children?: ReactNode; }> &...'.
-//   Type '{ text: string; }' is not assignable to type 'Readonly<IProps>'.
-//     Property 'delimiter' is missing in type '{ text: string; }'.
-
-// => change as follows
-
 import * as React from "react";
 import "./App.css";
 
 interface IProps {
   text: string;
-  delimiter?: string; // *** add optional param
+  delimiter?: string; // Need to make prop optional
 }
 
 class SplitText extends React.Component<IProps> {
@@ -20,7 +13,7 @@ class SplitText extends React.Component<IProps> {
     delimiter: ","
   };
   render() {
-    const bits = this.props.text.split(this.props.delimiter!); // *** bang because can be undefined
+    const bits = this.props.text.split(this.props.delimiter!); // Need to use bang because compiler thinks delimiter prop can be undefined
     return (
       <ul>
         {bits.map((bit: string) => (
