@@ -1,7 +1,7 @@
-import { guid } from "../../Shared/src/utils";
+import { randomString } from "../../Shared/dist/utils";
 var Person = /** @class */ (function () {
     function Person() {
-        this.id = guid();
+        this.id = randomString();
     }
     return Person;
 }());

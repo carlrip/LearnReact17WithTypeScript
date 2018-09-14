@@ -2,11 +2,11 @@
   "compilerOptions": {
     "composite": true,
     "declaration": true,
+    "declarationMap": true,
 
     "target": "es5",
     "outDir": "dist",
     "module": "es6",
-    "moduleResolution": "node",
     "sourceMap": true,
     "noImplicitReturns": true,
     "noImplicitAny": true,
