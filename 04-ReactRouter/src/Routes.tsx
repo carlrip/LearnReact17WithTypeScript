@@ -46,9 +46,7 @@ class Routes extends React.Component<RouteComponentProps, IState> {
             classNames="animate"
           >
             <Switch>
-              <Route exact={true} path="/">
-                <Redirect to="/products" />
-              </Route>
+              <Redirect exact={true} from="/" to="/products" />
               <Route path="/products/:id" component={ProductPage} />
               <Route exact={true} path="/products" component={ProductsPage} />
               <Route path="/admin">
