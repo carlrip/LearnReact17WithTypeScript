@@ -35,7 +35,7 @@ class App extends React.Component<{}, IState> {
 
   public shouldComponentUpdate(nextProps: {}, nextState: IState) {
     console.log("shouldComponentUpdate", nextProps, nextState);
-    return false;
+    return true;
   }
 
   public getSnapshotBeforeUpdate(prevProps: {}, prevState: IState) {
