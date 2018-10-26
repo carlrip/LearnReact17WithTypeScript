@@ -45,7 +45,7 @@ class Header extends React.Component<RouteComponentProps, IState> {
           <NavLink
             to="/contactus"
             className="header-link"
-            activeClassName="headerlink-active"
+            activeClassName="header-link-active"
           >
             Contact Us
           </NavLink>
