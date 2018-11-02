@@ -1,8 +1,7 @@
 import * as React from "react";
 import { RouteComponentProps } from "react-router-dom";
-import { Link } from "react-router-dom";
 import { IProduct, products } from "./ProductsData";
-
+import { Link } from "react-router-dom";
 import "url-search-params-polyfill";
 
 interface IState {
@@ -34,12 +33,6 @@ class ProductsPage extends React.Component<RouteComponentProps, IState> {
   public componentDidMount() {
     this.setState({ products });
   }
-
-  // public componentDidMount() {
-  //   const searchParams = new URLSearchParams(this.props.location.search);
-  //   const search = searchParams.get("search") || "";
-  //   this.setState({ products, search });
-  // }
 
   public render() {
     return (
