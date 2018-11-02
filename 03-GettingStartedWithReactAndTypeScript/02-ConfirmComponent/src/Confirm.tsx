@@ -12,12 +12,44 @@ interface IProps {
 }
 
 const Confirm: React.SFC<IProps> = props => {
-  const handleCancelClick = () => {
-    props.onCancelClick();
-  };
+  console.log("Confirm rendering");
+
+  const [cancelClickCount, setCancelClickCount] = (React as any).useState(0);
+
+  // (React as any).useEffect(() => {
+  //   console.log("Confirm first rendering");
+  // }, []);
+
+  // (React as any).useEffect(() => {
+  //   console.log("Confirm rendering");
+  // });
+
+  // (React as any).useEffect(
+  //   () => {
+  //     console.log("open changed");
+  //   },
+  //   [props.open]
+  // );
+
+  (React as any).useEffect(() => {
+    console.log("Confirm first rendering");
+    return () => {
+      console.log("Confirm unmounted");
+    };
+  }, []);
 
   const handleOkClick = () => {
     props.onOkClick();
+  };
+
+  const handleCancelClick = () => {
+    setCancelClickCount((prevCount: number) => {
+      const newCount = prevCount + 1;
+      if (newCount === 2) {
+        props.onCancelClick();
+      }
+      return newCount;
+    });
   };
 
   return (
@@ -35,7 +67,7 @@ const Confirm: React.SFC<IProps> = props => {
         </div>
         <div className="confirm-buttons-container">
           <button className="confirm-cancel" onClick={handleCancelClick}>
-            {props.cancelCaption}
+            {cancelClickCount === 0 ? props.cancelCaption : "Really?"}
           </button>
           <button className="confirm-ok" onClick={handleOkClick}>
             {props.okCaption}
@@ -50,4 +82,6 @@ Confirm.defaultProps = {
   okCaption: "Okay"
 };
 
-export default Confirm;
+const ConfirmMemo = (React as any).memo(Confirm);
+
+export default ConfirmMemo;
