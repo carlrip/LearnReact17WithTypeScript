@@ -145,7 +145,7 @@ export class Form extends React.Component<IFormProps, IState> {
   };
   constructor(props: IFormProps) {
     super(props);
-    const errors = {};
+    const errors: IErrors = {};
     Object.keys(props.defaultValues).forEach(fieldName => {
       errors[fieldName] = [];
     });
