@@ -69,7 +69,7 @@ const mapStateToProps = (store: IApplicationState) => {
     ),
     basketProducts: store.basket.products,
     loading: store.products.productsLoading,
-    product: store.products.currentProduct
+    product: store.products.currentProduct || undefined
   };
 };
 

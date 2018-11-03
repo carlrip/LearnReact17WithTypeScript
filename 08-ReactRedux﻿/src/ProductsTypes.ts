@@ -1,6 +1,6 @@
 import { IProduct } from "./ProductsData";
 
-export const enum ProductsActionTypes {
+export enum ProductsActionTypes {
   GETALL = "PRODUCTS/GETALL",
   GETSINGLE = "PRODUCTS/GETSINGLE",
   LOADING = "PRODUCTS/LOADING"

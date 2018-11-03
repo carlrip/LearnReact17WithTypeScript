@@ -1,6 +1,6 @@
 import { IProduct } from "./ProductsData";
 
-export const enum BasketActionTypes {
+export enum BasketActionTypes {
   ADD = "BASKET/ADD"
 }
 
