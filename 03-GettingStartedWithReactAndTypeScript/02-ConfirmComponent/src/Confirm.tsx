@@ -43,13 +43,11 @@ const Confirm: React.SFC<IProps> = props => {
   };
 
   const handleCancelClick = () => {
-    setCancelClickCount((prevCount: number) => {
-      const newCount = prevCount + 1;
-      if (newCount === 2) {
-        props.onCancelClick();
-      }
-      return newCount;
-    });
+    const newCount = cancelClickCount + 1;
+    setCancelClickCount(newCount);
+    if (newCount >= 2) {
+      props.onCancelClick();
+    }
   };
 
   return (
