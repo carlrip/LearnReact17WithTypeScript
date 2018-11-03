@@ -9,6 +9,3 @@ const someWork = async () => {
 };
 
 someWork();
-
-// => even more readable - like synchronous code
-// => use use promises and async await together because async and await is syntactic sugar on top of promises

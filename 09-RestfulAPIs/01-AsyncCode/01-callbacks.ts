@@ -31,7 +31,7 @@ setTimeout(() => {
 }, 1000);
 console.log(result);
 
-// TODO - callback hell with jQuery ajax
+// callback hell with jQuery ajax
 $("button").click(function() {
   $.get("api/resouce1", function(items) {
     items.array.forEach(element => {
