@@ -1,4 +1,8 @@
 import * as React from "react";
+
+// @ts-ignore
+import { Suspense } from "react";
+
 import {
   BrowserRouter as Router,
   Redirect,
@@ -9,7 +13,7 @@ import {
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 import Header from "./Header";
-import AdminPage from "./AdminPage";
+const AdminPage = (React as any).lazy(() => import("./AdminPage"));
 import ProductsPage from "./ProductsPage";
 import ProductPage from "./ProductPage";
 import LoginPage from "./LoginPage";
@@ -39,7 +43,15 @@ const Routes: React.SFC<RouteComponentProps> = props => {
             <Route exact={true} path="/products" component={ProductsPage} />
             <Route path="/products/:id" component={ProductPage} />
             <Route path="/admin">
-              {loggedIn ? <AdminPage /> : <Redirect to="/login" />}
+              {loggedIn ? (
+                <Suspense
+                  fallback={<div className="page-container">Loading...</div>}
+                >
+                  <AdminPage />
+                </Suspense>
+              ) : (
+                <Redirect to="/login" />
+              )}
             </Route>
             <Route path="/login" component={LoginPage} />
             <Route component={NotFoundPage} />
