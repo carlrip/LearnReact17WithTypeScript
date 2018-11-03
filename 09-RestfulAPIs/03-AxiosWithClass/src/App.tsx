@@ -33,8 +33,8 @@ class App extends Component<{}, IState> {
   }
 
   public componentDidMount() {
-    const CancelToken = axios.CancelToken;
-    const cancelTokenSource = CancelToken.source();
+    const cancelToken = axios.CancelToken;
+    const cancelTokenSource = cancelToken.source();
     this.setState({ cancelTokenSource });
     axios
       .get<IPost[]>("https://jsonplaceholder.typicode.com/posts", {
