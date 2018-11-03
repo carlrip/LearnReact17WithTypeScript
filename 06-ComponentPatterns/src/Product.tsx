@@ -15,6 +15,7 @@ const Product: React.SFC<IProps> = props => {
   const handleAddClick = () => {
     props.onAddToBasket();
   };
+
   if (!product) {
     return null;
   }
@@ -22,7 +23,6 @@ const Product: React.SFC<IProps> = props => {
   return (
     <React.Fragment>
       <h1>{product.name}</h1>
-
       <Tabs>
         <Tabs.Tab
           name="Description"
@@ -31,6 +31,7 @@ const Product: React.SFC<IProps> = props => {
         >
           <p>{product.description}</p>
         </Tabs.Tab>
+
         <Tabs.Tab name="Reviews" heading={() => "Reviews"}>
           <ul className="product-reviews">
             {product.reviews.map(review => (
@@ -41,7 +42,6 @@ const Product: React.SFC<IProps> = props => {
           </ul>
         </Tabs.Tab>
       </Tabs>
-
       <p className="product-price">
         {new Intl.NumberFormat("en-US", {
           currency: "USD",
@@ -54,4 +54,5 @@ const Product: React.SFC<IProps> = props => {
     </React.Fragment>
   );
 };
+
 export default withLoader(Product);

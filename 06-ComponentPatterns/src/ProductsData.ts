@@ -2,6 +2,7 @@ export interface IReview {
   comment: string;
   reviewer: string;
 }
+
 export interface IProduct {
   id: number;
   name: string;
@@ -22,10 +23,7 @@ export const products: IProduct[] = [
         comment: "Excellent! This does everything I want",
         reviewer: "Billy"
       },
-      {
-        comment: "The best router I've ever worked with",
-        reviewer: "Sally"
-      }
+      { comment: "The best router I've ever worked with", reviewer: "Sally" }
     ]
   },
   {
