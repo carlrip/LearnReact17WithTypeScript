@@ -180,3 +180,11 @@ textarea {
   padding: 5px 10px;
   border: white solid 2px;
 }
+
+.like-container {
+  margin-top: 20px;
+}
+
+.like-container button {
+  margin-top: 5px;
+}
