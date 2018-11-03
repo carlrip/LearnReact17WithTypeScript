@@ -1,8 +1,6 @@
-import * as React from "react";
-import "./App.css";
-
+import React, { Component } from "react";
 import logo from "./logo.svg";
-
+import "./App.css";
 import axios, { CancelTokenSource } from "axios";
 
 interface IPost {
@@ -19,21 +17,21 @@ interface IState {
   loading: boolean;
   editPost: IPost;
 }
-
-class App extends React.Component<{}, IState> {
+class App extends Component<{}, IState> {
   public constructor(props: {}) {
     super(props);
     this.state = {
+      posts: [],
+      error: "",
+      loading: true,
       editPost: {
         body: "",
         title: "",
         userId: 1
-      },
-      error: "",
-      loading: true,
-      posts: []
+      }
     };
   }
+
   public componentDidMount() {
     const CancelToken = axios.CancelToken;
     const cancelTokenSource = CancelToken.source();
@@ -57,7 +55,7 @@ class App extends React.Component<{}, IState> {
             : ex.response.status === 404
               ? "Resource not found"
               : "An unexpected error has occurred";
-        this.setState({ error });
+        this.setState({ error, loading: false });
       });
 
     // cancelTokenSource.cancel("User cancelled operation");
@@ -66,13 +64,6 @@ class App extends React.Component<{}, IState> {
   public render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
         <div className="post-edit">
           <input
             type="text"
@@ -82,8 +73,8 @@ class App extends React.Component<{}, IState> {
           />
           <textarea
             placeholder="Enter body"
-            onChange={this.handleBodyChange}
             value={this.state.editPost.body}
+            onChange={this.handleBodyChange}
           />
           <button onClick={this.handleSaveClick}>Save</button>
         </div>
@@ -104,7 +95,6 @@ class App extends React.Component<{}, IState> {
             </li>
           ))}
         </ul>
-
         {this.state.error && <p className="error">{this.state.error}</p>}
       </div>
     );

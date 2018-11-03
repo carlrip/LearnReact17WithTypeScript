@@ -1,5 +1,5 @@
 {
-  "name": "my-components",
+  "name": "crud-api",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -29,7 +29,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "save-dev": "^2.0.0",
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.15.0",
     "tslint-react": "^3.6.0"
