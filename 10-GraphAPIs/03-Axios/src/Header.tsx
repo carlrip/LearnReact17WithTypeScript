@@ -15,9 +15,9 @@ export const Header: React.SFC = () => {
   const [viewer, setViewer]: [
     IViewer,
     (viewer: IViewer) => void
-  ] = (React as any).useState({});
+  ] = React.useState({ name: "", avatarUrl: "" });
 
-  (React as any).useEffect(() => {
+  React.useEffect(() => {
     axios
       .post<IQueryResult>(
         "https://api.github.com/graphql",
@@ -31,7 +31,7 @@ export const Header: React.SFC = () => {
         },
         {
           headers: {
-            Authorization: "bearer c38748afe55176e582f6aabf562ec97bb1121eb0"
+            Authorization: "bearer our-bearer-token"
           }
         }
       )
