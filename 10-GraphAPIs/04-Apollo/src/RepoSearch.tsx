@@ -33,6 +33,27 @@ interface IRepo {
   };
 }
 
+const defaultRepo: IRepo = {
+  id: "",
+  name: "",
+  description: "",
+  viewerHasStarred: false,
+  stargazers: {
+    totalCount: 0
+  },
+  issues: {
+    edges: [
+      {
+        node: {
+          id: "",
+          title: "",
+          url: ""
+        }
+      }
+    ]
+  }
+};
+
 interface IQueryResult {
   repository: IRepo;
 }
@@ -77,20 +98,19 @@ const RepoSearch: React.SFC<IProps> = props => {
   const [search, setSearch]: [
     ISearch,
     (search: ISearch) => void
-  ] = (React as any).useState({
+  ] = React.useState({
     orgName: "",
     repoName: ""
   });
 
-  const [repo, setRepo]: [
-    IRepo,
-    (repo: IRepo) => void
-  ] = (React as any).useState({});
+  const [repo, setRepo]: [IRepo, (repo: IRepo) => void] = React.useState(
+    defaultRepo
+  );
 
   const [searchError, setSearchError]: [
     string,
     (searchError: string) => void
-  ] = (React as any).useState("");
+  ] = React.useState("");
 
   const handleOrgNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch({ ...search, orgName: e.currentTarget.value });
