@@ -10,36 +10,34 @@ interface IPost {
 }
 
 const App: React.SFC = () => {
-  const [posts, setPosts]: [
-    IPost[],
-    (posts: IPost[]) => void
-  ] = (React as any).useState([]);
-  const [error, setError]: [
-    string,
-    (error: string) => void
-  ] = (React as any).useState("");
+  const [posts, setPosts]: [IPost[], (posts: IPost[]) => void] = React.useState(
+    []
+  );
+  const [error, setError]: [string, (error: string) => void] = React.useState(
+    ""
+  );
 
   const cancelToken = axios.CancelToken;
   const [cancelTokenSource, setCancelTokenSource]: [
     CancelTokenSource,
     (cancelSourceToken: CancelTokenSource) => void
-  ] = (React as any).useState(cancelToken.source());
+  ] = React.useState(cancelToken.source());
 
   const [loading, setLoading]: [
     boolean,
     (loading: boolean) => void
-  ] = (React as any).useState(false);
+  ] = React.useState(false);
 
   const [editPost, setEditPost]: [
     IPost,
     (post: IPost) => void
-  ] = (React as any).useState({
+  ] = React.useState({
     body: "",
     title: "",
     userId: 1
   });
 
-  (React as any).useEffect(() => {
+  React.useEffect(() => {
     axios
       .get<IPost[]>("https://jsonplaceholder.typicode.com/posts", {
         cancelToken: cancelTokenSource.token,
@@ -56,10 +54,10 @@ const App: React.SFC = () => {
         const err = axios.isCancel(ex)
           ? "Request cancelled"
           : ex.code === "ECONNABORTED"
-            ? "A timeout has occurred"
-            : ex.response.status === 404
-              ? "Resource not found"
-              : "An unexpected error has occurred";
+          ? "A timeout has occurred"
+          : ex.response.status === 404
+          ? "Resource not found"
+          : "An unexpected error has occurred";
         setError(err);
         setLoading(false);
       });
