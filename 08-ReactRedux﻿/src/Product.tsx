@@ -42,7 +42,7 @@ const Product: React.SFC<IProps> = props => {
   const [{ likes, lastLike }, dispatch]: [
     ILikeState,
     (action: ILikeAction) => void
-  ] = (React as any).useReducer(reducer, initialLikeState);
+  ] = React.useReducer(reducer, initialLikeState);
 
   const product = props.product;
 
