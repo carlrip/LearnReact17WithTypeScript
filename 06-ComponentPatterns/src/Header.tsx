@@ -4,8 +4,8 @@ import "url-search-params-polyfill";
 import logo from "./logo.svg";
 
 const Header: React.SFC<RouteComponentProps> = props => {
-  const [search, setSearch] = (React as any).useState("");
-  (React as any).useEffect(() => {
+  const [search, setSearch] = React.useState("");
+  React.useEffect(() => {
     const searchParams = new URLSearchParams(props.location.search);
     setSearch(searchParams.get("search") || "");
   }, []);
