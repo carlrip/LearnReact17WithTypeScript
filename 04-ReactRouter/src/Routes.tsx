@@ -13,7 +13,7 @@ import {
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 import Header from "./Header";
-const AdminPage = (React as any).lazy(() => import("./AdminPage"));
+const AdminPage = React.lazy(() => import("./AdminPage"));
 import ProductsPage from "./ProductsPage";
 import ProductPage from "./ProductPage";
 import LoginPage from "./LoginPage";
@@ -28,7 +28,7 @@ const RoutesWrap: React.SFC = () => {
 };
 
 const Routes: React.SFC<RouteComponentProps> = props => {
-  const [loggedIn, setLoggedIn] = (React as any).useState(true);
+  const [loggedIn, setLoggedIn] = React.useState(true);
   return (
     <div>
       <Header />
