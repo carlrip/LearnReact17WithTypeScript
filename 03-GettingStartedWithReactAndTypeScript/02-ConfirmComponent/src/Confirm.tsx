@@ -14,24 +14,24 @@ interface IProps {
 const Confirm: React.SFC<IProps> = props => {
   console.log("Confirm rendering");
 
-  const [cancelClickCount, setCancelClickCount] = (React as any).useState(0);
+  const [cancelClickCount, setCancelClickCount] = React.useState(0);
 
-  // (React as any).useEffect(() => {
+  // React.useEffect(() => {
   //   console.log("Confirm first rendering");
   // }, []);
 
-  // (React as any).useEffect(() => {
+  // React.useEffect(() => {
   //   console.log("Confirm rendering");
   // });
 
-  // (React as any).useEffect(
+  // React.useEffect(
   //   () => {
   //     console.log("open changed");
   //   },
   //   [props.open]
   // );
 
-  (React as any).useEffect(() => {
+  React.useEffect(() => {
     console.log("Confirm first rendering");
     return () => {
       console.log("Confirm unmounted");
@@ -80,6 +80,6 @@ Confirm.defaultProps = {
   okCaption: "Okay"
 };
 
-const ConfirmMemo = (React as any).memo(Confirm);
+const ConfirmMemo = React.memo(Confirm);
 
 export default ConfirmMemo;
