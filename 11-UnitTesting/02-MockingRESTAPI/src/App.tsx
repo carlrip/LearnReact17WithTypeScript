@@ -81,20 +81,22 @@ class App extends Component<{}, IState> {
         {this.state.loading && (
           <button onClick={this.handleCancelClick}>Cancel</button>
         )}
-        <ul className="posts" data-testid="posts">
-          {this.state.posts.map(post => (
-            <li key={post.id}>
-              <h3>{post.title}</h3>
-              <p>{post.body}</p>
-              <button onClick={() => this.handleUpdateClick(post)}>
-                Update
-              </button>
-              <button onClick={() => this.handleDeleteClick(post)}>
-                Delete
-              </button>
-            </li>
-          ))}
-        </ul>
+        {this.state.posts.length > 0 && (
+          <ul className="posts" data-testid="posts">
+            {this.state.posts.map(post => (
+              <li key={post.id}>
+                <h3>{post.title}</h3>
+                <p>{post.body}</p>
+                <button onClick={() => this.handleUpdateClick(post)}>
+                  Update
+                </button>
+                <button onClick={() => this.handleDeleteClick(post)}>
+                  Delete
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
         {this.state.error && <p className="error">{this.state.error}</p>}
       </div>
     );
