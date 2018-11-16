@@ -9,9 +9,11 @@ interface IPost {
   body: string;
 }
 
+const defaultPosts: IPost[] = [];
+
 const App: React.SFC = () => {
   const [posts, setPosts]: [IPost[], (posts: IPost[]) => void] = React.useState(
-    []
+    defaultPosts
   );
   const [error, setError]: [string, (error: string) => void] = React.useState(
     ""
