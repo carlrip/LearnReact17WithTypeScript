@@ -76,6 +76,27 @@ body {
   display: none;
 }
 
+.admin-sections {
+  list-style: none;
+  margin: 0px 0px 20px 0px;
+  padding: 0;
+}
+
+.admin-sections li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.admin-sections li a {
+  color: #222;
+  text-decoration: none;
+}
+
+.admin-link-active {
+  border-bottom: #6f6e6e solid 2px;
+}
+
+
 .product-reviews {
   list-style: none;
   padding: 0px;
