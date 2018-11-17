@@ -15,7 +15,6 @@ describe("ContactUs", () => {
       <ContactUs onSubmit={handleSubmit} />
     );
 
-    debugger;
     const submitButton = getByText("Submit");
     fireEvent.click(submitButton);
 
