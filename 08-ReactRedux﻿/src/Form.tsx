@@ -107,7 +107,7 @@ export class Form extends React.Component<IFormProps, IState> {
       <FormContext.Consumer>
         {context => (
           <div className="form-group">
-            <label htmlFor="name">{label}</label>
+            <label htmlFor={name}>{label}</label>
             {(type === "Text" || type === "Email") && (
               <input
                 type={type.toLowerCase()}
