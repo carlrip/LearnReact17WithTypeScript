@@ -1,4 +1,4 @@
-This project contains the completed code the confirmation component built in chapter 3.
+This project contains the completed code for the confirmation component built in chapter 3.
 To restore this:
 
 - Copy the contents of the `02-ConfirmComponent` folder into a folder of your choice
