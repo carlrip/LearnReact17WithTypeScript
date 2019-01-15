@@ -11,7 +11,7 @@ interface IProps {
   onNotesChange: (notes: string) => void;
 }
 
-const ContactUs: React.SFC<IProps> = props => {
+const ContactUs: React.FC<IProps> = props => {
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     props.onNameChange(e.currentTarget.value);
   };

@@ -11,7 +11,7 @@ interface IPost {
 
 const defaultPosts: IPost[] = [];
 
-const App: React.SFC = () => {
+const App: React.FC = () => {
   const [posts, setPosts]: [IPost[], (posts: IPost[]) => void] = React.useState(
     defaultPosts
   );

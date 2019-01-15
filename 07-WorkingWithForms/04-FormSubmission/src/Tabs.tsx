@@ -19,7 +19,7 @@ interface IState {
 }
 
 class Tabs extends React.Component<{}, IState> {
-  public static Tab: React.SFC<ITabProps> = props => (
+  public static Tab: React.FC<ITabProps> = props => (
     <TabsContext.Consumer>
       {(context: ITabsContext) => {
         if (!context.activeName && props.initialActive) {
@@ -31,8 +31,8 @@ class Tabs extends React.Component<{}, IState> {
         const activeName = context.activeName
           ? context.activeName
           : props.initialActive
-            ? props.name
-            : "";
+          ? props.name
+          : "";
         const handleTabClick = (e: React.MouseEvent<HTMLLIElement>) => {
           if (context.handleTabClick) {
             context.handleTabClick(props.name, props.children);

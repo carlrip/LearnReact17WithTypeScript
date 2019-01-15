@@ -1,6 +1,6 @@
 import * as React from "react";
 
-const LoginPage: React.SFC = () => {
+const LoginPage: React.FC = () => {
   return (
     <div className="page-container">
       <h1>Login</h1>

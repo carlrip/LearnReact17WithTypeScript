@@ -1,7 +1,7 @@
 import * as React from "react";
 import { NavLink, Route, RouteComponentProps } from "react-router-dom";
 
-const AdminPage: React.SFC = () => {
+const AdminPage: React.FC = () => {
   return (
     <div className="page-container">
       <h1>Admin Panel</h1>
@@ -23,7 +23,7 @@ const AdminPage: React.SFC = () => {
   );
 };
 
-const AdminProducts: React.SFC = () => {
+const AdminProducts: React.FC = () => {
   return <div>Some options to administer products</div>;
 };
 
@@ -37,7 +37,7 @@ const adminUsersData: IUser[] = [
   { id: 2, name: "Bob", isAdmin: false },
   { id: 3, name: "Jane", isAdmin: true }
 ];
-const AdminUsers: React.SFC = () => {
+const AdminUsers: React.FC = () => {
   return (
     <div>
       <ul className="admin-sections">
@@ -57,7 +57,7 @@ const AdminUsers: React.SFC = () => {
   );
 };
 
-const AdminUser: React.SFC<RouteComponentProps<{ id: string }>> = props => {
+const AdminUser: React.FC<RouteComponentProps<{ id: string }>> = props => {
   let user: IUser;
   if (props.match.params.id) {
     const id: number = parseInt(props.match.params.id, 10);

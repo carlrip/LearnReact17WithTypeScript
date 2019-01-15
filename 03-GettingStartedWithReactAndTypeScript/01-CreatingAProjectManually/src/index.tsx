@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-const App: React.SFC = () => {
+const App = () => {
   return <h1>My React App!</h1>;
 };
 

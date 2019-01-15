@@ -9,7 +9,7 @@ interface IProps {
   onAddToBasket: () => void;
 }
 
-const Product: React.SFC<IProps> = props => {
+const Product: React.FC<IProps> = props => {
   const product = props.product;
 
   const handleAddClick = () => {

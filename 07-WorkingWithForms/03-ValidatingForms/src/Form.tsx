@@ -71,7 +71,7 @@ interface IState {
   errors: IErrors;
 }
 export class Form extends React.Component<IFormProps, IState> {
-  public static Field: React.SFC<IFieldProps> = props => {
+  public static Field: React.FC<IFieldProps> = props => {
     const { name, label, type, options } = props;
     const handleChange = (
       e:

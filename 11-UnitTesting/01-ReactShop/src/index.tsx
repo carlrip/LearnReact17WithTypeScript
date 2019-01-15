@@ -10,7 +10,7 @@ import { IApplicationState } from "./Store";
 interface IProps {
   store: Store<IApplicationState>;
 }
-const Root: React.SFC<IProps> = props => {
+const Root: React.FC<IProps> = props => {
   return (
     <Provider store={props.store}>
       <Routes />

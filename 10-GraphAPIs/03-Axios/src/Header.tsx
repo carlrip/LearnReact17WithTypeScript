@@ -11,7 +11,7 @@ interface IQueryResult {
   };
 }
 
-export const Header: React.SFC = () => {
+export const Header: React.FC = () => {
   const [viewer, setViewer]: [
     IViewer,
     (viewer: IViewer) => void

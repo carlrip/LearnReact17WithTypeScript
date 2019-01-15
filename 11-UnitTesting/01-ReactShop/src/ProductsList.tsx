@@ -8,7 +8,7 @@ interface IProps {
   search: string;
 }
 
-const ProductsList: React.SFC<IProps> = props => {
+const ProductsList: React.FC<IProps> = props => {
   const search = props.search;
   return (
     <ul className="product-list">

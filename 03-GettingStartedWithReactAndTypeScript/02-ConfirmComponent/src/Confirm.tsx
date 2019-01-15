@@ -11,7 +11,7 @@ interface IProps {
   onCancelClick: () => void;
 }
 
-const Confirm: React.SFC<IProps> = props => {
+const Confirm: React.FC<IProps> = props => {
   console.log("Confirm rendering");
 
   const [cancelClickCount, setCancelClickCount] = React.useState(0);

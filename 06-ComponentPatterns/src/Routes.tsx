@@ -19,7 +19,7 @@ import ProductPage from "./ProductPage";
 import LoginPage from "./LoginPage";
 import NotFoundPage from "./NotFoundPage";
 
-const RoutesWrap: React.SFC = () => {
+const RoutesWrap: React.FC = () => {
   return (
     <Router>
       <Route component={Routes} />
@@ -27,7 +27,7 @@ const RoutesWrap: React.SFC = () => {
   );
 };
 
-const Routes: React.SFC<RouteComponentProps> = props => {
+const Routes: React.FC<RouteComponentProps> = props => {
   const [loggedIn, setLoggedIn] = React.useState(true);
   return (
     <div>

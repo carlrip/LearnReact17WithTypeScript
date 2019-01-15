@@ -38,7 +38,7 @@ const reducer = (state: ILikeState = initialLikeState, action: LikeActions) => {
   return state;
 };
 
-const Product: React.SFC<IProps> = props => {
+const Product: React.FC<IProps> = props => {
   const [{ likes, lastLike }, dispatch]: [
     ILikeState,
     (action: ILikeAction) => void

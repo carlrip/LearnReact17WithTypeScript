@@ -21,7 +21,7 @@ interface IState {
   loggedIn: boolean;
 }
 
-const RoutesWrap: React.SFC = () => {
+const RoutesWrap: React.FC = () => {
   return (
     <Router>
       <Route component={Routes} />

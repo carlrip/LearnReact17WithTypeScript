@@ -5,7 +5,7 @@ interface IProps {
   onSubmit: (values: IValues) => Promise<ISubmitResult>;
 }
 
-const ContactUs: React.SFC<IProps> = props => {
+const ContactUs: React.FC<IProps> = props => {
   const handleSubmit = async (values: IValues): Promise<ISubmitResult> => {
     const result = await props.onSubmit(values);
     return result;

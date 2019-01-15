@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Form, minLength, required } from "./Form";
 
-const ContactUs: React.SFC = () => {
+const ContactUs: React.FC = () => {
   return (
     <Form
       defaultValues={{ name: "", email: "", reason: "Support", notes: "" }}
