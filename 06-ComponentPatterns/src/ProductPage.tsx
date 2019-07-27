@@ -20,14 +20,20 @@ class ProductPage extends React.Component<Props, IState> {
     };
   }
 
+  private componentUnloaded: boolean = false;
+  
   public async componentDidMount() {
     if (this.props.match.params.id) {
       const id: number = parseInt(this.props.match.params.id, 10);
       const product = await getProduct(id);
-      if (product !== null) {
+      if (product !== null && !this.componentUnloaded) {
         this.setState({ product, loading: false });
       }
     }
+  }
+
+  public componentWillUnmount() {
+    this.componentUnloaded = true;
   }
 
   public render() {

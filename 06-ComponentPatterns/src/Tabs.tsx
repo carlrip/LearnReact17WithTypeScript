@@ -16,36 +16,42 @@ interface ITabProps {
   heading: () => string | JSX.Element;
 }
 class Tabs extends React.Component<{}, IState> {
-  public static Tab: React.FC<ITabProps> = props => (
-    <TabsContext.Consumer>
-      {(context: ITabsContext) => {
-        if (!context.activeName && props.initialActive) {
-          if (context.handleTabClick) {
-            context.handleTabClick(props.name, props.children);
-            return null;
-          }
+  public static Tab: React.FC<ITabProps> = props => {
+    
+    const {activeName, handleTabClick} = React.useContext(TabsContext)
+    React.useEffect(() => {
+      if (!activeName && props.initialActive) {
+        if (handleTabClick) {
+          handleTabClick(props.name, props.children);
         }
-        const activeName = context.activeName
-          ? context.activeName
-          : props.initialActive
-          ? props.name
-          : "";
-        const handleTabClick = (e: React.MouseEvent<HTMLLIElement>) => {
-          if (context.handleTabClick) {
-            context.handleTabClick(props.name, props.children);
-          }
-        };
-        return (
-          <li
-            onClick={handleTabClick}
-            className={props.name === activeName ? "active" : ""}
-          >
-            {props.heading()}
-          </li>
-        );
-      }}
-    </TabsContext.Consumer>
-  );
+      }
+    }, [props.name, props.initialActive, props.children, activeName, handleTabClick])
+
+    return (
+      <TabsContext.Consumer>
+        {(context: ITabsContext) => {
+          const activeName = context.activeName
+            ? context.activeName
+            : props.initialActive
+            ? props.name
+            : "";
+          const handleTabClick = (e: React.MouseEvent<HTMLLIElement>) => {
+            if (context.handleTabClick) {
+              context.handleTabClick(props.name, props.children);
+            }
+          };
+          return (
+            <li
+              onClick={handleTabClick}
+              className={props.name === activeName ? "active" : ""}
+            >
+              {props.heading()}
+            </li>
+          );
+        }}
+      </TabsContext.Consumer>
+    )
+  };
   public render() {
     return (
       <TabsContext.Provider

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "./App.css";
 import axios, { CancelTokenSource } from "axios";
 
@@ -25,10 +25,7 @@ const App: React.FC = () => {
     (cancelSourceToken: CancelTokenSource) => void
   ] = React.useState(cancelToken.source());
 
-  const [loading, setLoading]: [
-    boolean,
-    (loading: boolean) => void
-  ] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
 
   const [editPost, setEditPost]: [
     IPost,
@@ -65,7 +62,7 @@ const App: React.FC = () => {
       });
 
     // cancelTokenSource.cancel("User cancelled operation");
-  }, []);
+  }, [cancelTokenSource.token]);
 
   const handleCancelClick = () => {
     if (cancelTokenSource) {

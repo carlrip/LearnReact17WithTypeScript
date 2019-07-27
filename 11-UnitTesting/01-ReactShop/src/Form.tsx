@@ -221,7 +221,7 @@ export class Form extends React.Component<IFormProps, IState> {
   private validateForm(): boolean {
     const errors: IErrors = {};
     let haveError: boolean = false;
-    Object.keys(this.props.defaultValues).map(fieldName => {
+    Object.keys(this.props.defaultValues).forEach(fieldName => {
       errors[fieldName] = this.validate(
         fieldName,
         this.state.values[fieldName]

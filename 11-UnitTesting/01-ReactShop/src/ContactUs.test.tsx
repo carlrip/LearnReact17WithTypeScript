@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { Simulate } from "react-dom/test-utils";
 import ContactUs from "./ContactUs";
 import { ISubmitResult } from "./Form";
-import { render, cleanup, fireEvent } from "react-testing-library";
+import { render, cleanup, fireEvent } from "@testing-library/react";
 
 afterEach(cleanup);
 

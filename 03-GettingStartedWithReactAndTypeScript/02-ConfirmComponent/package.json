@@ -3,14 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@types/jest": "23.3.9",
-    "@types/node": "10.12.2",
-    "@types/react": "^16.7.3",
-    "@types/react-dom": "16.0.9",
-    "react": "^16.8.0-alpha.0",
-    "react-dom": "^16.8.0-alpha.0",
-    "react-scripts": "2.1.1",
-    "typescript": "3.1.6"
+    "@types/jest": "24.0.15",
+    "@types/node": "12.6.8",
+    "@types/react": "^16.8.23",
+    "@types/react-dom": "16.8.4",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.1",
+    "typescript": "3.5.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -28,8 +28,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "tslint": "^5.11.0",
-    "tslint-config-prettier": "^1.15.0",
-    "tslint-react": "^3.6.0"
+    "tslint": "^5.18.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-react": "^4.0.0"
   }
 }

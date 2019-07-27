@@ -37,7 +37,7 @@ export const Header: React.SFC = () => {
         }
         return (
           <div>
-            <img src={data.viewer.avatarUrl} className="avatar" />
+            <img src={data.viewer.avatarUrl} className="avatar" alt="avatar" />
             <div className="viewer">{data.viewer.name}</div>
             <h1>GitHub Search</h1>
           </div>
